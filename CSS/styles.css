@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Farsan&display=swap');
+/* add a grain effect */
+/* 
+references:
+https://flanermoscow.ru/#menuopen
+http://illetterista.it/
+https://www.peppasauce.love/
+https://mercatosantambrogio.it/
+https://www.jackdaniels.com/en -au
+https://thumbs.dreamstime.com/b/retro-newspaper-ads-page-retro-newspaper-ads-page-promo-advertisements-vintage-newsprint-letterhead-vector-illustration-162673428.jpg
+ */
+:root{
+    --main-radius: 5px;
+    --main-padding: 50px;
+
+    --font: 'Farsan', cursive;;
+    --fontSize: 2em;
+
+    --width: 60%;
+    --max-height: auto;
+    --color: #5d3327;
+
+    --justify: justify;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+html{
+    background: #f2eecb;
+}
+
+.mainContainer{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "logo logo logo"
+    "main main main";
+    gap: 0.2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: 800;
+    text-align: center;
+}
+
+.subContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "intro intro"
+    "content1 img1"
+    "img2 content2"
+    "content3 img3"
+    "footer footer";
+    margin-left: 15%;
+    margin-right: 15%;
+    row-gap: 0.2em;
+    align-items: center;
+}
+
+.logo{
+    grid-area: logo;
+    width: 25%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    border-top: 3px solid #5d3327;
+    border-bottom: 3px solid #5d3327;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+main{
+    grid-area: main;
+}
+
+.intro{
+    grid-area: intro;
+    border-bottom: 3px solid #5d3327;
+    color: #5d3327;
+    font-family: 'Lobster', cursive;
+    font-size: 48px;
+    letter-spacing: 0.2em;
+}
+
+.subject {
+    letter-spacing: 0;
+    position: relative;
+    color:#df0000;
+    text-shadow: 0.4vmin 0.2vmin 0 #000000;
+    font-family: 'Courgette', cursive;
+}
+
+.year{
+    grid-area: year;
+    font-size: 24px;
+    display: inline-block;
+
+    text-align: right;
+    color: #f2eecb;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 0.1em;
+    background: #5d3327;
+    padding: 0.5em;
+
+    border-radius: var(--main-radius);
+    padding-top: var(--main-radius);
+}
+
+.fancyLink{
+    background-image: linear-gradient(90deg, #df0000, #5d3327);
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 1000ms ease;
+}
+.fancyLink:hover{
+    background-size: 100% 3px;
+}
+
+/* styles for all the content */
+.content1{
+    grid-area: content1;
+    font-family: var(--font);
+    font-size: var(--fontSize);
+    color: var(--color);
+    text-align: var(--justify);
+    
+    border-bottom: 6px solid var(--color);
+    transition: transform .2s;
+}
+.content1:hover{
+    transform: scale(1.1);
+    border-bottom: 0px;
+}
+.content2{
+    grid-area: content2;
+    font-family: var(--font);
+    font-size: var(--fontSize);
+    color: var(--color);
+    text-align: var(--justify);
+    border-bottom: 6px solid var(--color);
+}
+.content2:hover{
+    transform: scale(1.1);
+    border-bottom: 0px;
+}
+.content3{
+    grid-area: content3;
+    font-family: var(--font);
+    font-size: var(--fontSize);
+    color: var(--color);
+    text-align: var(--justify);
+    border-bottom: 6px solid var(--color);
+}
+.content3:hover{
+    transform: scale(1.1);
+    border-bottom: 0px;
+}
+
+.img1 img{
+    object-fit: cover;
+    width: var(--width);
+    max-height: var(--max-height);
+}
+.img2 img{
+    object-fit: cover;
+    width: var(--width);
+    max-height: var(--max-height);
+}
+.img3 img{
+    object-fit: cover;
+    width: var(--width);
+    max-height: var(--max-height);
+}
+
+footer{
+    grid-area: footer;
+    background:  #e0d3af;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-radius);
+}
+
+form{
+    display: table;
+    margin-bottom: 5%;
+    text-align: left;
+    font-family: var(--font);
+    font-size: var(--fontSize);
+}
+
+.form-row{
+    display: table-row;
+}
+
+label, input{
+    display: table-cell;
+}
+
+@media (max-width:50em){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr;
+        grid-template-areas: 
+        "nav"
+        "sidebar"
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "footer";
+    }
+}
